@@ -1,6 +1,6 @@
 <?php
-include 'include/functions.php';
-include 'include/config.php';
+include './include/functions.php';
+include './include/config.php';
 if (isset($_POST['send'])) {
   $email = $_POST['email'];
   $body = $_POST['messagearea'];
@@ -28,21 +28,28 @@ if (isset($_POST['send'])) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title><?php
           echo "Contact Us" . " - " . siteinfo('site_name');
           ?></title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href='../../upload/img/<?php echo siteinfo('favicon'); ?>' rel='icon' type='image/x-icon' />
-  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="../../assets/css/public-style.css">
+  <link href='./upload/img/<?php echo siteinfo('favicon'); ?>' rel='icon' type='image/x-icon' />
+  <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/public-style.css">
+  <style>
+    .padding {
+      padding-top: 60px;
+    }
+  </style>
 </head>
+
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="/index.php">
-      <img src="../../upload/img/<?php echo siteinfo('logo'); ?>" width="130" height="30">
+      <img src="./upload/img/<?php echo siteinfo('logo'); ?>" width="130" height="30">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon">
@@ -51,21 +58,21 @@ if (isset($_POST['send'])) {
     <div class="collapse navbar-collapse dark" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="/index.php">Home</a>
+          <a class="nav-link" href="./index.php">Home</a>
         </li>
         <?php if (isset($_SESSION['loginsuccessuser'])) { ?>
           <li class="nav-item">
-            <a class="nav-link" href="/user/index.php">Dashboard</a>
+            <a class="nav-link" href="./user/index.php">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/user/logout.php">Log Out</a>
+            <a class="nav-link" href="./user/logout.php">Log Out</a>
           </li>
         <?php } else { ?>
           <li class="nav-item">
-            <a class="nav-link" href="/signin.php">Sign In</a>
+            <a class="nav-link" href="./signin.php">Sign In</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signup.php">Sign Up</a>
+            <a class="nav-link" href="./signup.php">Sign Up</a>
           </li>
         <?php } ?>
         <li class="nav-item dropdown">
@@ -113,7 +120,7 @@ if (isset($_POST['send'])) {
       </div>
     </div>
   </nav>
-  <div class="container">
+  <div class="container padding">
     <?php
     echo errorMessage();
     echo successMessage();
@@ -163,7 +170,7 @@ if (isset($_POST['send'])) {
                     </div>
                     <div class="form-group">
                       <label for="captcha"><span class="fieldinfo">Captcha:</span></label>
-                      <img src="../../include/captcha.php" id="captcha"><button class="btn btn-info refresh-button" type="button" onClick="reload();"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                      <img src="./include/captcha.php" id="captcha"><button class="btn btn-info refresh-button" type="button" onClick="reload()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                       <input class="form-control" type="text" name="captcha" id="captcha">
                     </div>
                     <input class="btn btn-primary" type="submit" name="send" value="Send Email">
@@ -343,16 +350,16 @@ if (isset($_POST['send'])) {
           </h5>
           <ul class="list-unstyled">
             <li>
-              <a href="/about-us.php">About Us</a>
+              <a href="./about-us.php">About Us</a>
             </li>
             <li>
-              <a href="/contact-us.php">Contact Us</a>
+              <a href="./contact-us.php">Contact Us</a>
             </li>
             <li>
-              <a href="/advertise.php">Advertise</a>
+              <a href="./advertise.php">Advertise</a>
             </li>
             <li>
-              <a href="/privacy-policy.php">Privacy &amp; Policy</a>
+              <a href="./privacy-policy.php">Privacy &amp; Policy</a>
             </li>
           </ul>
         </div>
@@ -392,16 +399,17 @@ if (isset($_POST['send'])) {
       </li>
     </ul>
     <div class="footer-copyright text-center py-3">Copyright © <?php echo date("Y"); ?>&nbsp;
-      <a href="/index.php"><?php echo siteinfo('site_name'); ?></a>
+      <a href="./index.php"><?php echo siteinfo('site_name'); ?></a>
     </div>
   </footer>
   <script type="text/javascript">
     function reload() {
       img = document.getElementById("captcha");
-      img.src = "../../include/captcha.php?rand_number=" + Math.random();
+      img.src = "./include/captcha.php?rand_number=" + Math.random();
     }
   </script>
-  <script src="../assets/js/jquery-3.5.1.slim.min.js"></script>
-  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+  <script src="./assets/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

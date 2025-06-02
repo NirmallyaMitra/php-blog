@@ -44,25 +44,32 @@ if (!isset($_SESSION['loginsuccessuser'])) {
 ?>
   <!DOCTYPE html>
   <html>
+
   <head>
     <title><?php echo "Sign Up - " . siteinfo('site_name');
             ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='../../upload/img/<?php echo siteinfo('favicon'); ?>' rel='icon' type='image/x-icon' />
-    <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../assets/css/public-style.css">
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/public-style.css">
     <style type="text/css">
       .card {
         margin-bottom: 10px;
       }
+
+      .padding {
+        padding-top: 100px;
+        padding-bottom: 30px;
+      }
     </style>
   </head>
+
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a class="navbar-brand" href="/index.php">
-        <img src="../../upload/img/<?php echo siteinfo('logo'); ?>" width="130" height="30">
+        <img src="./upload/img/<?php echo siteinfo('logo'); ?>" width="130" height="30">
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon">
@@ -71,15 +78,15 @@ if (!isset($_SESSION['loginsuccessuser'])) {
       <div class="collapse navbar-collapse dark" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <a class="nav-link" href="/index.php">Home
+            <a class="nav-link" href="./index.php">Home
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signin.php">Sign In
+            <a class="nav-link" href="./signin.php">Sign In
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/signup.php">Sign Up
+            <a class="nav-link" href="./signup.php">Sign Up
             </a>
           </li>
           <li class="nav-item dropdown">
@@ -123,7 +130,7 @@ if (!isset($_SESSION['loginsuccessuser'])) {
         </div>
       </div>
     </nav>
-    <div class="container">
+    <div class="container padding">
       <aside class="col-xl-5 mx-auto">
         <div class="card">
           <article class="card-body">
@@ -131,7 +138,7 @@ if (!isset($_SESSION['loginsuccessuser'])) {
             echo errorMessage();
             echo successMessage();
             ?>
-            <a href="/signin.php" class="float-right btn btn-outline-primary">Sign In</a>
+            <a href="./signin.php" class="float-right btn btn-outline-primary">Sign In</a>
             <h4 class="card-title mb-4 mt-1">Sign Up</h4>
             <form method="POST">
               <div class="form-group">
@@ -162,7 +169,7 @@ if (!isset($_SESSION['loginsuccessuser'])) {
               </div>
               <div class="form-group">
                 <label for="captcha">Captcha:</label>
-                <img src="../../include/captcha.php" id="captcha"><button class="btn btn-info refresh-button" type="button" onClick="reload();"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+                <img src="./include/captcha.php" id="captcha"><button class="btn btn-info refresh-button" type="button" onClick="reload()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
                 <input class="form-control" type="text" name="captcha" id="captcha" placeholder="Captcha" autocomplete="off">
               </div>
               <div class="form-group">
@@ -230,16 +237,16 @@ if (!isset($_SESSION['loginsuccessuser'])) {
             </h5>
             <ul class="list-unstyled">
               <li>
-                <a href="/about-us.php">About Us</a>
+                <a href="./about-us.php">About Us</a>
               </li>
               <li>
-                <a href="/contact-us.php">Contact Us</a>
+                <a href="./contact-us.php">Contact Us</a>
               </li>
               <li>
-                <a href="/advertise.php">Advertise</a>
+                <a href="./advertise.php">Advertise</a>
               </li>
               <li>
-                <a href="/privacy-policy.php">Privacy &amp; Policy</a>
+                <a href="./privacy-policy.php">Privacy &amp; Policy</a>
               </li>
             </ul>
           </div>
@@ -279,22 +286,23 @@ if (!isset($_SESSION['loginsuccessuser'])) {
         </li>
       </ul>
       <div class="footer-copyright text-center py-3">Copyright © <?php echo date("Y"); ?>&nbsp;
-        <a href="/index.php"><?php echo siteinfo('site_name'); ?></a>
+        <a href="./index.php"><?php echo siteinfo('site_name'); ?></a>
       </div>
     </footer>
     <script type="text/javascript">
       function reload() {
         img = document.getElementById("captcha");
-        img.src = "../../include/captcha.php?rand_number=" + Math.random();
+        img.src = "./include/captcha.php?rand_number=" + Math.random();
       }
     </script>
-    <script src="../../assets/js/jquery-3.5.1.slim.min.js"></script>
-    <script src="../../assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/jquery-3.5.1.slim.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
   </body>
+
   </html>
 <?php
 } else {
   $_SESSION['successMessage'] = "You are logged in.";
-  redirectTo("/user/index.php");
+  redirectTo("./user/index.php");
 }
 ?>
