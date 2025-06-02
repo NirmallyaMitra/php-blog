@@ -38,7 +38,7 @@ $post_view_query_result = mysqli_query($conn, $post_view_query);
 
 <body>
 	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-		<a class="navbar-brand" href="index.php">
+		<a class="navbar-brand" href="./index.php">
 			<img src="./upload/img/<?php echo siteinfo('logo'); ?>" width="130" height="30">
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
